@@ -1,1 +1,450 @@
-/*abominatiogus!-----*/
+@charset "UTF-8";
+
+/* ロード画面用スタイル */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    color: #fff;
+    font-size: 48px;
+    font-family: "Train One", system-ui;
+}
+
+/* ロゴのスタイル */
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 75px;
+    font-family: "Train One", system-ui;
+}
+
+.logo .slash {
+    opacity: 1;
+    animation: fadeInSlash 0.8s ease-in-out, fadeOutText 0.7s ease-in-out 2.2s forwards;
+}
+
+.logo .text {
+    position: absolute;
+    opacity: 0;
+    font-size: 60px;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    font-family: "Train One", system-ui;
+}
+
+.logo .text.left {
+    left: 50%;
+    transform: translateX(-100%);
+    animation: fadeInLeft 0.5s ease-in-out 0.7s forwards, fadeOutText 0.7s ease-in-out 2.2s forwards;
+}
+
+.logo .text.right {
+    right: 50%;
+    transform: translateX(100%);
+    animation: fadeInRight 0.5s ease-in-out 0.7s forwards, fadeOutText 0.7s ease-in-out 2.2s forwards;
+}
+
+/* スラッシュがフェードイン */
+@keyframes fadeInSlash {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* 左側の文字がスラッシュに近づいてフェードイン */
+@keyframes fadeInLeft {
+    0% { opacity: 0; transform: translateX(-110%); }
+    100% { opacity: 1; transform: translateX(-130%); }
+}
+
+/* 右側の文字がスラッシュに近づいてフェードイン */
+@keyframes fadeInRight {
+    0% { opacity: 0; transform: translateX(110%); }
+    100% { opacity: 1; transform: translateX(130%); }
+}
+
+/* KTC24のスタイル */
+.ktc {
+    opacity: 0;
+    font-size: 24px;
+    transform: translateY(-20px);
+    animation: fadeInKTC 1.0s ease-in-out 1.2s forwards, fadeOutText 0.7s ease-in-out 2.2s forwards;
+    margin-top: 10px;
+}
+
+/* KTC24が上からフェードイン */
+@keyframes fadeInKTC {
+    0% { opacity: 0; transform: translateY(-40px); }
+    100% { opacity: 1; transform: translateY(-20px); }
+}
+
+/* 文字がフェードアウト */
+@keyframes fadeOutText {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* 黒い背景がフェードアウト */
+.loader.hidden {
+    animation: fadeOutBackground 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeOutBackground {
+    0% { opacity: 1; }
+    100% { opacity: 0; visibility: hidden; }
+}
+
+.ktc span {
+    opacity: 0;
+    animation: fadeInKTC 2.0s ease-in-out forwards, fadeOutText 4.0s ease-in-out 2.0s forwards;
+}
+
+.ktc .ktc1 { animation-delay: 1.5s; }
+.ktc .ktc2 { animation-delay: 1.55s; }
+.ktc .ktc3 { animation-delay: 1.6s; }
+.ktc .ktc4 { animation-delay: 1.65s; }
+.ktc .ktc5 { animation-delay: 1.7s; }
+
+.nav {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9998;
+}
+
+.nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.nav li {
+    margin: 0 50px;
+    display: flex;
+    align-items: center;
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    font-family: "Kanit", sans-serif;
+    font-weight: 175;
+    transform: scaleX(1.7);
+    line-height: 1;
+}
+
+.home-icon .rogo {
+    width: 40px;
+    height: auto;
+}
+
+.nav a {
+    padding: 0 10px;
+}
+
+.nav a.home-icon {
+    padding: 0;
+}
+
+.nav a:hover {
+    color: #aaa;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+main {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.mountain {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.mountain img {
+    width: 100%;
+    height: auto;
+}
+
+.title-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    text-align: center;
+    color: #fff;
+    font-size: 50px;
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out 3.5s forwards;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+
+.contact-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 30px;
+    border: 2px solid #fff;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    font-family: "Kanit", sans-serif;
+}
+
+.contact-button:hover {
+    background-color: #333;
+    border-color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.contact-button:active {
+    transform: translateY(1px);
+    background-color: #111;
+    border-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.background-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.contact-form {
+    padding: 20px;
+    max-width: 600px;
+    margin: 100px auto 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.contact-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: "Libre Baskerville", serif;
+    color: #333;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.contact-form button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #555;
+}
+/* 通知メッセージのスタイル */
+.notification {
+    display: none; /* 初期状態では非表示 */
+    color: red; /* 赤色にする */
+    font-size: 15px; /* フォントサイズを調整 */
+    font-weight: bold; /* 太字にする */
+    margin-top: 10px; /* 上部マージンを追加 */
+    padding: 10px; /* パディングを追加 */
+    border: 1px solid red; /* 赤いボーダー */
+    background-color: #fdd; /* 薄い赤の背景色 */
+    border-radius: 4px; /* 角を丸める */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* 薄い影を追加 */
+    position: relative; /* 相対位置にしてアイコンを追加しやすくする */
+}
+
+.notification::before {
+    content: '⚠️ '; /* アイコンを追加 */
+    font-size: 22px; /* アイコンのサイズを調整 */
+    position: absolute;
+    left: 10px; /* 左からの位置調整 */
+    top: 50%;
+    transform: translateY(-50%); /* 垂直中央に配置 */
+}
+
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.footer-content {
+    padding: 20px;
+}
+
+.footer-section {
+    margin-bottom: 10px;
+}
+
+.footer-section p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+}
+.profile {
+    padding: 0; /* 不要なパディングを削除 */
+    background-color: #f4f4f4;
+    position: relative;
+    height: 100vh; /* ビューポート全体の高さに設定 */
+    overflow: hidden; /* アニメーションの外に出る部分を隠す */
+}
+
+/* セクション全体の設定 */
+.profile-section {
+    position: absolute; /* 絶対位置指定 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff; /* 背景色の設定 */
+    display: none; /* 初期は非表示 */
+    opacity: 0; /* 初期は透明 */
+    overflow: hidden; /* アニメーションが画像領域内で完結するようにする */
+}
+
+/* コンテンツ全体の設定 */
+.profile-content {
+    position: relative; /* 親要素に対する相対位置指定 */
+    width: 100%; /* コンテンツの幅を100%に設定 */
+    height: 100%; /* コンテンツの高さを100%に設定 */
+    overflow: hidden; /* アニメーションがコンテンツ領域内で完結するようにする */
+}
+
+/* テキスト部分の設定 */
+.profile-text {
+    position: absolute; /* 絶対位置指定 */
+    top: 50%; /* 上から50%の位置に配置 */
+    left: 30%; /* 左から30%の位置に配置 */
+    transform: translateY(-50%); /* テキストを中央に揃える */
+    max-width: 30%; /* テキスト部分の最大幅を30%に設定 */
+    opacity: 0; /* 初期は透明 */
+    animation: fade-in 1s forwards; /* フェードインアニメーション */
+}
+
+.profile-text h2 {
+    font-size: 28px; /* 見出しのフォントサイズ */
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.profile-text p {
+    font-size: 20px; /* テキストのフォントサイズ */
+    color: #666;
+}
+
+/* 画像部分の設定 */
+.profile-content img {
+    position: absolute; /* 絶対位置指定 */
+    top: 40%; /* 上から40%の位置に配置 */
+    right: 30%; /* 右から30%の位置に配置 */
+    transform: translateY(-50%); /* 画像を中央に揃える */
+    width: 300px; /* 画像の幅を固定 */
+    height: 400px; /* 画像の高さを固定 */
+    object-fit: cover; /* 画像が切り取られても容器に収まるように調整 */
+    opacity: 0; /* 初期は透明 */
+    animation: fade-in 1s forwards; /* フェードインアニメーション */
+}
+
+/* アニメーション定義 */
+@keyframes fade-in {
+    0% {
+        opacity: 0; /* 初期は透明 */
+        transform: translateY(20px); /* 少し下から移動してくる */
+    }
+    100% {
+        opacity: 1; /* 完全に表示 */
+        transform: translateY(0); /* 元の位置 */
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1; /* 初期は完全に表示 */
+        transform: scale(1); /* 元のサイズ */
+    }
+    100% {
+        opacity: 0; /* 徐々に消える */
+        transform: scale(1.05); /* 少し大きめにすることで消失感を演出 */
+    }
+}
+
+/* アクティブなセクションの表示 */
+.profile-section.active {
+    display: block; /* 表示されるセクションのみ表示 */
+}
+
+/* フェードイン・フェードアウトのアニメーション */
+.profile-section.incoming {
+    animation: fade-in 1s forwards;
+}
+
+.profile-section.outgoing {
+    animation: fade-out 1s forwards;
+}
